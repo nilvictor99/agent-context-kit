@@ -1,0 +1,7 @@
+# <%= name %>
+
+<%= description %>
+
+Stack: <%= [ ...frameworks, ...stack, ...db ].join(', ') %>
+Scripts: <%= Object.keys(scripts).join(', ') %>
+Licencia: <%= license || 'N/A' %>

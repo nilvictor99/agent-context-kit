@@ -1,0 +1,34 @@
+# <%= name %> — Guía para agentes
+
+<% if (format === 'full') { %>
+## Qué es
+<%= description %>
+
+## Stack tecnológico
+<% if (frameworks.length) { %>Frameworks: <%= frameworks.join(', ') %><% } %>
+<% if (stack.length) { %>Stack: <%= stack.join(', ') %><% } %>
+<% if (db.length) { %>DB: <%= db.join(', ') %><% } %>
+
+## Estructura
+<% paths.forEach(p=>{ %>- `src/<%= p %>/`<% }) %>
+
+## Scripts principales
+<% Object.entries(scripts).forEach(([k,v])=>{ %>- `<%= k %>`: <%= v %><% }) %>
+
+## Licencia
+<%= license || 'No detectada' %>
+
+## Convenciones
+- No sobrescribir archivos existentes sin `--force`.
+- Validar cambios con tests antes de commit.
+
+<% } else { %>
+**<%= name %>** — <%= description %>
+
+Stack: <%= [ ...frameworks, ...stack, ...db ].join(', ') || 'Detectar' %>
+Scripts: <%= Object.keys(scripts).join(', ') || 'N/A' %>
+Licencia: <%= license || 'N/A' %>
+Rutas clave: <%= paths.join(', ') || 'src' %>
+
+Reglas: no tocar archivos existentes, validar antes de commit.
+<% } %>

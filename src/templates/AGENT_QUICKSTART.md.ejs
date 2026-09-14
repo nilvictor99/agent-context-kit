@@ -1,0 +1,11 @@
+# Quickstart para agentes — <%= name %>
+
+Stack: <%= [ ...frameworks, ...stack, ...db ].join(', ') %>
+
+Arrancar:
+<% Object.entries(scripts).forEach(([k,v])=>{ if(k==='dev'||k==='start'){ %>- <%= k %>: `npm run <%= k %>`
+<% } }) %>
+
+Estructura: <%= paths.join(', ') || 'src' %>
+
+Reglas de oro: filtrar por usuario, validar con zod, cookies HttpOnly.
